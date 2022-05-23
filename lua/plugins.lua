@@ -3,7 +3,7 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     -- colorSchemes
-    use 'folke/tokyonight.nvim'
+    use { "ellisonleao/gruvbox.nvim" }
 
     -- file explorer
     use 'kyazdani42/nvim-tree.lua'
@@ -17,6 +17,7 @@ return require('packer').startup(function()
     -- LSP
     use 'neovim/nvim-lspconfig' -- activa lsp
     use 'williamboman/nvim-lsp-installer'
+    use "jose-elias-alvarez/null-ls.nvim" --formater and linters
 
     -- cmp plugins
     use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -43,7 +44,7 @@ return require('packer').startup(function()
     use 'windwp/nvim-autopairs'
 
     --terminal
-    use{"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()require("toggleterm").setup() end}
+    use {"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()require("toggleterm").setup()end}
 
     -- indent-blankline
     use "lukas-reineke/indent-blankline.nvim"
@@ -57,4 +58,8 @@ return require('packer').startup(function()
 
     -- gitsigns
     use "lewis6991/gitsigns.nvim"
+
+    -- bufferline
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+
 end)

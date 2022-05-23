@@ -4,7 +4,6 @@ local opts = {noremap = true, silent = true}
 map('','<Space>','<Nop>',opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 -- Modes
 --   insert_mode = "i",
 --   normal_mode = "n",
@@ -14,6 +13,7 @@ vim.g.maplocalleader = ' '
 --   command_mode = "c",
 
 map('i','kj','<ESC>',opts)
+map('n','<leader>nh',':noh<CR>',opts)
 
 -- normal_mode
 -- Mejor navegacion por ventanas
@@ -28,28 +28,35 @@ map("n", "<C-Down>", ":resize -2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
+-- navigate buffers
+map('n','<S-l>',':bnext<CR>',opts)
+map('n','<S-h>',':bprevious<CR>',opts)
+
+-- mover text up and down
+map("n", "<A-k>", ":<ESC>:m .-2<CR>==gi", opts)
+map("n", "<A-j>", ":<ESC>:m .+1<CR>==gi", opts)
+
 -- Open NvimTree
 map('n', '<leader>e',':NvimTreeToggle<CR>',opts)
 
 -- Toggle Terminal
-map('n','<leader>t',':ToggleTerm<CR>',opts)
+-- map('n','<leader>t',':ToggleTerm<CR>',opts)
 
+-- Toggle telescope find file
+map('n','<leader>ff','<cmd>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({previewer = false}))<cr>',opts)
 -- Visual --
 -- Stay in indent mode
 -- Tabuladores
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 
-
-map("n", "J", ":m .+1<CR>==", opts) 
-map("n", "K", ":m .-2<CR>==", opts)
+map("v", "<A-j>", ":m .+1<CR>==", opts)
+map("v", "<A-k>", ":m .-2<CR>==", opts)
 map("v", "p", '"_dP', opts)
 
-map("v", "J", ":m .+1<CR>==", opts) 
-map("v", "K", ":m .-2<CR>==", opts)
-
-
---map('n','<leader>f','<cmd>Telescope find_files<cr>',opts)
-map('n','<leader>ff','<cmd>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({previewer = false}))<cr>',opts)
-
-
+-- Visual block
+-- move text up and down
+map("x", "J", ":move '>+1<CR>gv-gv", opts)
+map("x", "K", ":move '<-2<CR>gv-gv", opts)
+map("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+map("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
