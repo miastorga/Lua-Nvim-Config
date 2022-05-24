@@ -28,10 +28,6 @@ map("n", "<C-Down>", ":resize -2<CR>", opts)
 map("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
--- navigate buffers
-map('n','<S-l>',':bnext<CR>',opts)
-map('n','<S-h>',':bprevious<CR>',opts)
-
 -- mover text up and down
 map("n", "<A-k>", ":<ESC>:m .-2<CR>==gi", opts)
 map("n", "<A-j>", ":<ESC>:m .+1<CR>==gi", opts)
@@ -44,6 +40,11 @@ map('n', '<leader>e',':NvimTreeToggle<CR>',opts)
 
 -- Toggle telescope find file
 map('n','<leader>ff','<cmd>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({previewer = false}))<cr>',opts)
+
+-- navigate buffers
+map("n", "<S-h>", ":bNext<CR>", opts)
+map("n", "<S-l>", ":bnext<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 -- Tabuladores
