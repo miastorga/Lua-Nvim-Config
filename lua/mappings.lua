@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
-local opts = {noremap = true, silent = true}
+local opts = { noremap = true, silent = true }
 
-map('','<Space>','<Nop>',opts)
+map('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 -- Modes
@@ -12,15 +12,19 @@ vim.g.maplocalleader = ' '
 --   term_mode = "t",
 --   command_mode = "c",
 
-map('i','kj','<ESC>',opts)
-map('n','<leader>nh',':noh<CR>',opts)
+map('i', 'kj', '<ESC>', opts)
+map('n', '<leader>nh', ':noh<CR>', opts)
 
 -- normal_mode
+-- ir al final de la linea
+-- map('n','<leader>h','<k0>',opts)
+--
+-- map('n','<leader>l','g$<CR>',opts)
 -- Mejor navegacion por ventanas
-map('n','<C-h>','<C-w>h',opts)
-map('n','<C-l>','<C-w>l',opts)
-map('n','<C-j>','<C-w>j',opts)
-map('n','<C-k>','<C-w>k',opts)
+map('n', '<C-h>', '<C-w>h', opts)
+map('n', '<C-l>', '<C-w>l', opts)
+map('n', '<C-j>', '<C-w>j', opts)
+map('n', '<C-k>', '<C-w>k', opts)
 
 -- Resize with arrows
 map("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -33,18 +37,23 @@ map("n", "<A-k>", ":<ESC>:m .-2<CR>==gi", opts)
 map("n", "<A-j>", ":<ESC>:m .+1<CR>==gi", opts)
 
 -- Open NvimTree
-map('n', '<leader>e',':NvimTreeToggle<CR>',opts)
+map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 
 -- Toggle Terminal
 -- map('n','<leader>t',':ToggleTerm<CR>',opts)
 
 -- Toggle telescope find file
-map('n','<leader>ff','<cmd>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({previewer = false}))<cr>',opts)
+map('n', '<leader>ff', '<cmd>lua require"telescope.builtin".find_files(require("telescope.themes").get_dropdown({previewer = false}))<cr>', opts)
+
+-- telescope live_grep
+map('n', '<leader>fg', '<cmd>lua require"telescope.builtin".live_grep()<cr>', opts)
 
 -- navigate buffers
 map("n", "<S-h>", ":bNext<CR>", opts)
 map("n", "<S-l>", ":bnext<CR>", opts)
 
+-- delete buffers
+map('n', '<leader>db', ':Bdelete<CR>', opts)
 -- Visual --
 -- Stay in indent mode
 -- Tabuladores

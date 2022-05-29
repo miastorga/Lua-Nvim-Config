@@ -1,10 +1,11 @@
 vim.opt.backup = false
 vim.opt.clipboard = 'unnamedplus'
-vim.opt.completeopt = {'menuone','noselect'}
+vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.opt.conceallevel = 0
 vim.opt.expandtab = true
 vim.opt.smarttab = true
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
 vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.showtabline = 2

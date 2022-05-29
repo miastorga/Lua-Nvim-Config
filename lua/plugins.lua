@@ -1,66 +1,73 @@
 return require('packer').startup(function()
-    -- packer manager
-    use 'wbthomason/packer.nvim'
+  -- packer manager
+  use 'wbthomason/packer.nvim'
 
-    -- colorSchemes
-    use { "ellisonleao/gruvbox.nvim" }
+  use 'lewis6991/impatient.nvim'
+  -- colorSchemes
+  use { "ellisonleao/gruvbox.nvim" }
 
-    -- file explorer
-    use 'kyazdani42/nvim-tree.lua'
+  -- file explorer
+  use 'kyazdani42/nvim-tree.lua'
 
-    -- iconos
-    use 'kyazdani42/nvim-web-devicons'
+  -- iconos
+  use 'kyazdani42/nvim-web-devicons'
 
-    -- status bar
-    use 'nvim-lualine/lualine.nvim'
+  -- status bar
+  use 'nvim-lualine/lualine.nvim'
 
-    -- LSP
-    use 'neovim/nvim-lspconfig' -- activa lsp
-    use 'williamboman/nvim-lsp-installer'
-    use "jose-elias-alvarez/null-ls.nvim" --formater and linters
+  -- cerrar buffers
+  use 'moll/vim-bbye'
 
-    -- cmp plugins
-    use "hrsh7th/nvim-cmp" -- The completion plugin
-    use "hrsh7th/cmp-buffer" -- buffer completions
-    use "hrsh7th/cmp-path" -- path completions
-    use "hrsh7th/cmp-cmdline" -- cmdline completions
-    use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    use 'hrsh7th/cmp-nvim-lsp'-- comletado LS<P
+  -- lsp setting
+  use 'tamago324/nlsp-settings.nvim'
+  -- LSP
+  use 'neovim/nvim-lspconfig' -- activa lsp
+  use 'williamboman/nvim-lsp-installer'
+  use "tamago324/nlsp-settings.nvim"
+  use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-    -- snippets
-    use "L3MON4D3/LuaSnip" --snippet engine
-    use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  -- cmp plugins
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use 'hrsh7th/cmp-nvim-lsp' -- comletado LS<P
 
-    -- telescope
-    use 'nvim-telescope/telescope.nvim'
-    use 'nvim-lua/plenary.nvim' --dependencia telescope
-    use 'nvim-lua/popup.nvim'
-    use 'nvim-telescope/telescope-media-files.nvim' -- faltan dependencias
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-    -- treesitter
-    use {'nvim-treesitter/nvim-treesitter',run = ':TSUpdate'}
+  -- telescope
+  use 'nvim-telescope/telescope.nvim'
+  use 'nvim-lua/plenary.nvim' --dependencia telescope
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim' -- faltan dependencias
 
-    -- autopairs
-    use 'windwp/nvim-autopairs'
+  -- treesitter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-    --terminal
-    use {"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()require("toggleterm").setup()end}
+  -- autopairs
+  use 'windwp/nvim-autopairs'
 
-    -- indent-blankline
-    use "lukas-reineke/indent-blankline.nvim"
+  --terminal
+  use { "akinsho/toggleterm.nvim", tag = 'v1.*', config = function() require("toggleterm").setup() end }
 
-    -- color a propiedades CSS
-    use 'norcalli/nvim-colorizer.lua'
+  -- indent-blankline
+  use "lukas-reineke/indent-blankline.nvim"
 
-    -- comments
-    use {'numToStr/Comment.nvim',config = function()require('Comment').setup() end}
-    use 'JoosepAlviste/nvim-ts-context-commentstring'
+  -- color a propiedades CSS
+  use 'norcalli/nvim-colorizer.lua'
 
-    -- gitsigns
-    use "lewis6991/gitsigns.nvim"
+  -- comments
+  use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
-    -- bufferline
-    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+  -- gitsigns
+  use "lewis6991/gitsigns.nvim"
 
-    use 'tpope/vim-surround'
+  -- bufferline
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+
+  use 'tpope/vim-surround'
 end)
